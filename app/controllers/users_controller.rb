@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @book = Book.new
   end
 
+
   def edit
     @user = User.find(params[:id])
     if @user == current_user
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def following
     @title ="Following"
     @user = User.find(params[:id])
@@ -48,14 +49,14 @@ class UsersController < ApplicationController
     @followers_count = Relationship.all.count(:follower_id)
     render 'show_followed'
   end
-  
+
   private
 
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
-  
+
   def zipedit
-  params.require(:user).permit(:postcode, :prefecture_name, :address_city, :address_street)
+  params.require(:user).permit(:postcode, :prefecture_code, :address_city, :address_street)
   end
 end

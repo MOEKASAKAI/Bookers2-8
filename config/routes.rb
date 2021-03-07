@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations'
+  }
   # ログインと新規登録の時の指定
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
